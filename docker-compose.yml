@@ -2,9 +2,17 @@ version: '3'
 
 services:
   llm-finetuning:
-    image: tensorflow/tensorflow:latest-gpu
+    build: .
     volumes:
       - .:/app
     working_dir: /app
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+
     # Command to keep the container running
     command: ["tail", "-f", "/dev/null"]

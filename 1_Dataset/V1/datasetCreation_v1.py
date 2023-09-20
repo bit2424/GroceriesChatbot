@@ -17,7 +17,7 @@ def concatenate_random_grocery_list(items):
 
     return shopping_list.lower()
 
-base_prompt = """Below is an instruction that describes a task. Write a response that appropriately completes the request.\n
+text_classification_prompt = """Below is an instruction that describes a task. Write a response that appropriately completes the request.\n
                 ### Instruction:
                 
                 Classify the text as one of the following categories:
@@ -51,10 +51,12 @@ dataset = []
 
 for template in base_templates:
     for i in range(0,17):
-        groceries_txt,grocery_list = concatenate_random_grocery_list(grocery_items)
+        groceries_txt = concatenate_random_grocery_list(grocery_items)
         new_text = template["text"].format(groceries = groceries_txt)
         dataset.append({"text":new_text,"category":template["category"],"items":groceries_txt})
-    
+
+random.shuffle(dataset)
+
 # Save the dataset to a .jsonl file
 with jsonlines.open('grocery_actions_v1.jsonl', mode='w') as writer:
     writer.write_all(dataset)
