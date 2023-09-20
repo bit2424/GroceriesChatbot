@@ -18,9 +18,10 @@ tokenizer_name_or_path = "bigscience/mt0-small"
 checkpoint_name = "grocery_action_classifier_v1.pt"
 text_column = "text"
 label_column = "category"
-max_length = 248
+max_length_input = 256
+max_length_output = 7
 lr = 1e-3
-num_epochs = 2
+num_epochs = 5
 batch_size = 8
 
 # creating model
@@ -63,8 +64,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
 def preprocess_function(examples):
     inputs = examples[text_column]
     targets = examples[label_column]
-    model_inputs = tokenizer(inputs, max_length=max_length, padding="max_length", truncation=True, return_tensors="pt")
-    labels = tokenizer(targets, max_length=5, padding="max_length", truncation=True, return_tensors="pt")
+    model_inputs = tokenizer(inputs, max_length=max_length_input, padding="max_length", truncation=True, return_tensors="pt")
+    labels = tokenizer(targets, max_length=max_length_output, padding="max_length", truncation=True, return_tensors="pt")
     labels = labels["input_ids"]
     labels[labels == tokenizer.pad_token_id] = -100
     model_inputs["labels"] = labels
@@ -160,8 +161,8 @@ model = PeftModel.from_pretrained(model, peft_model_id)
 
 model.eval()
 i = 13
-inputs = tokenizer(dataset_test['category'][i], return_tensors="pt")
-print(dataset_test['category'][i])
+inputs = tokenizer(dataset_test['text'][i], return_tensors="pt")
+print(dataset_test['text'][i])
 print(inputs)
 
 with torch.no_grad():
