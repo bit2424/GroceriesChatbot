@@ -53,7 +53,7 @@ for template in base_templates:
     for i in range(0,17):
         groceries_txt = concatenate_random_grocery_list(grocery_items)
         new_text = template["text"].format(groceries = groceries_txt)
-        dataset.append({"text":new_text,"category":template["category"],"items":groceries_txt})
+        dataset.append({"text":new_text,"category":template["category"],"items":groceries_txt+"."})
 
 random.shuffle(dataset)
 

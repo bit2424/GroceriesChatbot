@@ -3,3 +3,5 @@ datasets
 huggingface_hub
 jsonlines
 peft
+wandb 
+onnx

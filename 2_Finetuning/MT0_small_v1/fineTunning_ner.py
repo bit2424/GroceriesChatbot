@@ -3,7 +3,6 @@ from peft import get_peft_config, get_peft_model, get_peft_model_state_dict, Lor
 import torch
 from datasets import load_dataset
 import os
-
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 from transformers import AutoTokenizer
 from torch.utils.data import DataLoader
@@ -11,11 +10,12 @@ from transformers import default_data_collator, get_linear_schedule_with_warmup
 from tqdm import tqdm
 from datasets import load_dataset
 import random
+import wandb
 
 device = "cuda"
 model_name_or_path = "bigscience/mt0-small"
 tokenizer_name_or_path = "bigscience/mt0-small"
-
+dataset_name = "nelson2424/Grocery_chatbot_text_v1"
 checkpoint_name = "grocery_ner_v1.pt"
 text_column = "text"
 label_column = "items"
@@ -35,19 +35,40 @@ ner_prompt = """
 
 # creating model
 peft_config = LoraConfig(task_type=TaskType.SEQ_2_SEQ_LM, inference_mode=False, r=8, lora_alpha=32, lora_dropout=0.03)
-
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path)
 model = get_peft_model(model, peft_config)
 model.print_trainable_parameters()
+model.config.temperature = 0.8
+model.config.top_k = 20
 
-dataset_train,dataset_test,dataset_validation = load_dataset("nelson2424/Grocery_chatbot_text_v1",split=['train[:80%]', 'train[80%:90%]','train[90%:100%]'])
+
+wandb.init(
+    # set the wandb project where this run will be logged
+    project="Groceries_ner",
+    
+    # track hyperparameters and run metadata
+    config={
+        "learning_rate": lr,
+        "architecture": model_name_or_path,
+        "dataset": dataset_name,
+        "epochs": num_epochs,
+        "temperature":model.config.temperature,
+        "top_k":model.config.top_k,
+        "max_length_input":max_length_input,
+        "max_length_output":max_length_output,
+        "batch_size": batch_size,
+        
+    }
+)
+
+dataset_train,dataset_test,dataset_validation = load_dataset(dataset_name,split=['train[:80%]', 'train[80%:90%]','train[90%:100%]'])
 
 tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
 
 def preprocess_function(examples):
     # inputs = [ner_prompt.format(text=x) for x in examples[text_column]]
     inputs = examples[text_column] 
-    targets = [ x+"." for x in examples[label_column]]
+    targets = [ x+". " for x in examples[label_column]]
     model_inputs = tokenizer(inputs, max_length=max_length_input, padding="max_length", truncation=True, return_tensors="pt")
     labels = tokenizer(targets, max_length=max_length_output, padding="max_length", truncation=True, return_tensors="pt")
     labels = labels["input_ids"]
@@ -88,9 +109,6 @@ lr_scheduler = get_linear_schedule_with_warmup(
 
 model = model.to(device)
 
-model.config.temperature = 0.4
-model.config.top_k = 20
-
 for epoch in range(num_epochs):
     model.train()
     total_loss = 0
@@ -122,9 +140,13 @@ for epoch in range(num_epochs):
     train_epoch_loss = total_loss / len(train_dataloader)
     train_ppl = torch.exp(train_epoch_loss)
     print(f"epoch={epoch}: train_ppl={train_ppl} train_epoch_loss={train_epoch_loss} eval_ppl={eval_ppl} eval_epoch_loss={eval_epoch_loss}")
+    wandb.log({"train_ppl": train_ppl, "train_epoch_loss": train_epoch_loss, "eval_ppl":eval_ppl, "eval_epoch_loss":eval_epoch_loss})
 
 correct = 0
 total = 0
+
+eval_preds = [x.split(".")[0] for x in eval_preds]
+
 for pred, true in zip(eval_preds, dataset_test[label_column]):
     if pred.strip() == true.strip():
         correct += 1
@@ -132,9 +154,12 @@ for pred, true in zip(eval_preds, dataset_test[label_column]):
 accuracy = correct / total * 100
 print(f"{accuracy} % on the evaluation dataset")
 
+wandb.log({"accuracy":accuracy})
+          
 for i in range(0,10):
-    print(f"Prediction: {eval_preds[i]}")
-    print(f"Ground Truth: {dataset_test[label_column][i]}\n\n")
+    print(f"Text: {dataset_test[text_column][i]}\n")
+    print(f"Prediction: {eval_preds[i]}\n")
+    print(f"Ground Truth: {dataset_test[label_column][i]}\n\n\n")
 
 peft_model_id = f"{model_name_or_path}_{peft_config.peft_type}_{peft_config.task_type}"
 model.save_pretrained(peft_model_id)
