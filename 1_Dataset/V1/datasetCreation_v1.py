@@ -65,4 +65,4 @@ with jsonlines.open('grocery_actions_v1.jsonl', mode='w') as writer:
 dataset = Dataset.from_json('grocery_actions_v1.jsonl')
 
 # # Upload the dataset to Hugging Face
-dataset.push_to_hub('nelson2424/Grocery_chatbot_text_classification_v1')
+dataset.push_to_hub('nelson2424/Grocery_chatbot_text_v1')
