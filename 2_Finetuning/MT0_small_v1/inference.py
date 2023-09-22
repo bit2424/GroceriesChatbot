@@ -12,12 +12,9 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model_classifier = AutoModelForSeq2SeqLM.from_pretrained(model_classifier_peft_name)
 model_ner = AutoModelForSeq2SeqLM.from_pretrained(model_ner_peft_name)
 
-# Prepare input text
-input_text = "I will buy flowers for dinner"
+input_text = "We need to run this weekend"
 input_ids = tokenizer(input_text, return_tensors="pt")["input_ids"]
-
-dataset_validation = load_dataset(dataset_name,split=['train[90%:100%]'])
-
+print(input_text)
 # Perform inference
 with torch.no_grad():
     outputs_class = model_classifier.generate(input_ids=input_ids, max_new_tokens=10)

@@ -17,22 +17,6 @@ def concatenate_random_grocery_list(items):
 
     return shopping_list.lower()
 
-text_classification_prompt = """Below is an instruction that describes a task. Write a response that appropriately completes the request.\n
-                ### Instruction:
-                
-                Classify the text as one of the following categories:
-                 -Add elements to the list
-                 -Remove elements from the list
-                 
-                If the text doesn't fit any categories, classify it as the following:
-                 -Not a valid command
-                Return a JSON object that has the fields category and explanation.
-                
-                ### Task
-                Text: {text}
-                Category: {category}
-"""
-
 base_templates = []
     
 with open("base_templates_v1.json", 'r') as json_file:

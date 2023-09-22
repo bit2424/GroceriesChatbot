@@ -510,5 +510,78 @@
  {
   "text": "Can you find out if they carry {groceries} in the local market?",
   "category": "Not a valid command"
- }
+ },
+ {
+    "text": "We need a ride for the weekend",
+    "category": "Not a valid command"
+ },
+ {
+    "text": "Pick up the pace or we will be late",
+    "category": "Not a valid command"
+ },
+ {
+    "text": "We need James to come to the party",
+    "category": "Not a valid command"
+ },
+ {
+    "text": "We should visit the museum this weekend",
+    "category": "Not a valid command"
+},
+{
+    "text": "Did you catch the latest movie?",
+    "category": "Not a valid command"
+},
+{
+    "text": "I need to call my friend to confirm plans",
+    "category": "Not a valid command"
+},
+{
+    "text": "Let's go for a hike in the mountains",
+    "category": "Not a valid command"
+},
+{
+    "text": "I'm thinking of redecorating the living room",
+    "category": "Not a valid command"
+},
+{
+    "text": "Have you read the new book by that author?",
+    "category": "Not a valid command"
+},
+{
+    "text": "We should try that new restaurant downtown",
+    "category": "Not a valid command"
+},
+{
+    "text": "I need to fix the leak in the bathroom",
+    "category": "Not a valid command"
+},
+{
+    "text": "Let's plan a weekend getaway",
+    "category": "Not a valid command"
+},
+{
+    "text": "Did you hear about the upcoming concert?",
+    "category": "Not a valid command"
+},
+{
+    "text": "The {groceries} at that party were awesome",
+    "category": "Not a valid command"
+},
+{
+    "text": "The {groceries} at the restaurant were delicious.",
+    "category": "Not a valid command"
+},
+{
+    "text": "The {groceries} we saw at the market were fresh.",
+    "category": "Not a valid command"
+},
+{
+    "text": "I can't stop thinking about the {groceries} at that Hanna's place.",
+    "category": "Not a valid command"
+},
+{
+    "text": "The {groceries} they serve at that cafe are excellent.",
+    "category": "Not a valid command"
+}
+ 
 ]
