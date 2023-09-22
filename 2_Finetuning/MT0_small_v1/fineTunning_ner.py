@@ -61,6 +61,8 @@ wandb.init(
     }
 )
 
+wandb.run.tags = ["no_prompt"]
+
 dataset_train,dataset_test,dataset_validation = load_dataset(dataset_name,split=['train[:80%]', 'train[80%:90%]','train[90%:100%]'])
 
 tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)

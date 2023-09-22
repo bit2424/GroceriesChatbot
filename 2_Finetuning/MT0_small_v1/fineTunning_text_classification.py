@@ -10,11 +10,13 @@ from torch.utils.data import DataLoader
 from transformers import default_data_collator, get_linear_schedule_with_warmup
 from tqdm import tqdm
 from datasets import load_dataset
+import wandb
+import random
 
 device = "cuda"
 model_name_or_path = "bigscience/mt0-small"
 tokenizer_name_or_path = "bigscience/mt0-small"
-
+dataset_name = "nelson2424/Grocery_chatbot_text_v1"
 checkpoint_name = "grocery_action_classifier_v1.pt"
 text_column = "text"
 label_column = "category"
@@ -23,13 +25,6 @@ max_length_output = 7
 lr = 1e-3
 num_epochs = 5
 batch_size = 8
-
-# creating model
-peft_config = LoraConfig(task_type=TaskType.SEQ_2_SEQ_LM, inference_mode=False, r=8, lora_alpha=32, lora_dropout=0.1)
-
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path)
-model = get_peft_model(model, peft_config)
-model.print_trainable_parameters()
 
 text_classification_prompt = """Below is an instruction that describes a task. Write a response that appropriately completes the request.\n
                 ### Instruction:
@@ -47,17 +42,34 @@ text_classification_prompt = """Below is an instruction that describes a task. W
                 Category: {category}
 """
 
-dataset_train,dataset_test,dataset_validation = load_dataset("nelson2424/Grocery_chatbot_text_v1",split=['train[:80%]', 'train[80%:90%]','train[90%:100%]'])
+# creating model
+peft_config = LoraConfig(task_type=TaskType.SEQ_2_SEQ_LM, inference_mode=False, r=8, lora_alpha=32, lora_dropout=0.1)
 
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name_or_path)
+model = get_peft_model(model, peft_config)
+model.print_trainable_parameters()
 
-# dataset_train = dataset["train"].train_test_split(test_size=0.15)
+wandb.init(
+    # set the wandb project where this run will be logged
+    project="Groceries_classification",
+    
+    # track hyperparameters and run metadata
+    config={
+        "learning_rate": lr,
+        "architecture": model_name_or_path,
+        "dataset": dataset_name,
+        "epochs": num_epochs,
+        "temperature":model.config.temperature,
+        "top_k":model.config.top_k,
+        "max_length_input":max_length_input,
+        "max_length_output":max_length_output,
+        "batch_size": batch_size,
+        
+    }
+)
+wandb.run.tags = ["no_prompt"]
 
-# classes = dataset["train"].features["label"].names
-# dataset = dataset.map(
-#     lambda x: {"text_label": [classes[label] for label in x["label"]]},
-#     batched=True,
-#     num_proc=1,
-# )
+dataset_train,dataset_test,dataset_validation = load_dataset(dataset_name,split=['train[:80%]', 'train[80%:90%]','train[90%:100%]'])
 
 tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
 
@@ -135,7 +147,8 @@ for epoch in range(num_epochs):
     eval_ppl = torch.exp(eval_epoch_loss)
     train_epoch_loss = total_loss / len(train_dataloader)
     train_ppl = torch.exp(train_epoch_loss)
-    print(f"epoch={epoch}: train_ppl={train_ppl} train_epach_loss={train_epoch_loss} eval_ppl={eval_ppl} eval_epoch_loss={eval_epoch_loss}")
+    print(f"epoch={epoch}: train_ppl={train_ppl} train_epoch_loss={train_epoch_loss} eval_ppl={eval_ppl} eval_epoch_loss={eval_epoch_loss}")
+    wandb.log({"train_ppl": train_ppl, "train_epoch_loss": train_epoch_loss, "eval_ppl":eval_ppl, "eval_epoch_loss":eval_epoch_loss})
 
 correct = 0
 total = 0
@@ -145,8 +158,13 @@ for pred, true in zip(eval_preds, dataset_test["category"]):
     total += 1
 accuracy = correct / total * 100
 print(f"{accuracy} % on the evaluation dataset")
-print(f"{eval_preds[:10]}")
-print(f"{dataset_test['category'][:10]}")
+
+wandb.log({"accuracy":accuracy})
+
+for i in range(0,10):
+    print(f"Text: {dataset_test[text_column][i]}\n")
+    print(f"Prediction: {eval_preds[i]}\n")
+    print(f"Ground Truth: {dataset_test[label_column][i]}\n\n\n")
 
 peft_model_id = f"{model_name_or_path}_{peft_config.peft_type}_{peft_config.task_type}"
 model.save_pretrained(peft_model_id)
@@ -160,7 +178,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained(config.base_model_name_or_path)
 model = PeftModel.from_pretrained(model, peft_model_id)
 
 model.eval()
-i = 13
+i = random.randint(0,20)
 inputs = tokenizer(dataset_test['text'][i], return_tensors="pt")
 print(dataset_test['text'][i])
 print(inputs)
