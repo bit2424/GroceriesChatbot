@@ -1,0 +1,539 @@
+[
+ {
+  "text": "Let's make sure we have {groceries} on our list.",
+  "category": "Add elements to the list",
+  "type": "anything" 
+ },
+ {
+  "text": "We'll need {groceries} for the gathering.",
+  "category": "Add elements to the list",
+  "type": "anything"
+ },
+ {
+  "text": "Remember to include {groceries} in our weekly shopping.",
+  "category": "Add elements to the list",
+  "type": "supermarket" 
+ },
+ {
+  "text": "Hey, please add {groceries} to our grocery list.",
+  "category": "Add elements to the list",
+  "type": "supermarket" 
+ },
+ {
+  "text": "Could you add {groceries} to our shopping list, please?",
+  "category": "Add elements to the list",
+  "type": "supermarket"
+ },
+ {
+  "text": "I think we're out of {groceries} in the house.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "I heard we need {groceries}.",
+  "category": "Add elements to the list",
+  "type":"anything"
+ },
+ {
+  "text": "We need to pick up some {groceries} for the week.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "We need more {groceries}.",
+  "category": "Add elements to the list",
+  "type":"anything"
+ },
+ {
+  "text": "We should grab some {groceries} on our way home.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "Don't forget to buy {groceries} for the barbecue tomorrow.",
+  "category": "Add elements to the list",
+  "type":"anything"
+ },
+ {
+  "text": "We're running low on {groceries}. We should go shopping soon.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "I also need {groceries} from the store.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "Don't forget buying {groceries} when you're out.",
+  "category": "Add elements to the list",
+  "type":"anything"
+ },
+ {
+  "text": "I really like {groceries}, add them to the list",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "Let's add {groceries} to our list.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "Can you make sure {groceries} are on our shopping list?",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "We're missing {groceries} from the list.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "We're out of {groceries} at home, let's get some.",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "I was thinking of using {groceries} for dinner.",
+  "category": "Add elements to the list",
+  "type":"recipe"
+ },
+ {
+  "text": "Adding {groceries} to the list",
+  "category": "Add elements to the list",
+  "type":"supermarket"
+ },
+ {
+  "text": "I'm planning to cook with {groceries}.",
+  "category": "Add elements to the list",
+  "type":"recipe"
+ },
+ {
+    "text": "We'll need {groceries} for the weekend.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "We need to buy {groceries} soon.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "Let's make sure to get {groceries} for the week.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "We'll need {groceries} for the gathering next week.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "Remember to put {groceries} on our weekly shopping list.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "Hey, don't forget to add {groceries} to our grocery list.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "Sdd {groceries} to our shopping list",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "I think we've run out of {groceries} at home.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "I heard we're missing {groceries}.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "We should pick up {groceries} for the week.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "We need {groceries} for the weekend.",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "Let's not forget {groceries} when we go shopping.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "We need more {groceries}",
+    "category": "Add elements to the list",
+    "type": "anything"
+},
+{
+    "text": "We should definitely grab some {groceries} on our way home.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "Don't forget to add {groceries} to the list for the barbecue tomorrow.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+},
+{
+    "text": "I'm planning to cook with {groceries} soon.",
+    "category": "Add elements to the list",
+    "type": "recipe"
+   },
+   {
+    "text": "We'll definitely need {groceries} for the weekend.",
+    "category": "Add elements to the list",
+    "type": "anything"
+   },
+   {
+    "text": "We should definitely buy {groceries} soon.",
+    "category": "Add elements to the list",
+    "type": "supermarket"
+   },
+   {
+    "text": "For the recipe, we'll need {groceries}. Let's get them.",
+    "category": "Add elements to the list",
+    "type": "recipe"
+   },
+   {
+    "text": "Let's take {groceries} off the shopping list.",
+    "category": "Remove elements from the list",
+    "type": "anything"
+   },
+   {
+    "text": "We won't be needing {groceries} anymore.",
+    "category": "Remove elements from the list",
+    "type": "anything"
+   },
+   {
+    "text": "The {groceries} at that party were awesome",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "The {groceries} at the restaurant were delicious.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "We need a ride for the weekend",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Pick up the pace or we will be late",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "We need James to come to the party",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "The store is out of {groceries} today.",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "I prefer not to buy {groceries} from that store.",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "We should discuss {groceries} before buying them.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Have you seen the new variety of {groceries} at the store?",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "I read an article about the benefits of {groceries}.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Have you tried the recipe with {groceries}?",
+    "category": "Not a valid command",
+    "type": "recipe"
+},
+{
+    "text": "I heard they have a sale on {groceries} this week.",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "I think we can find {groceries} at a better price elsewhere.",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "Did you know they have a special on {groceries} at the store?",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "We should check the reviews for {groceries} before buying.",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "I'm not sure if we need {groceries} right now.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Can you remind me to research {groceries} before purchasing?",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I wonder if {groceries} are in season.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I'm curious about the quality of {groceries} from that brand.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I've been meaning to ask if we should get {groceries} this week.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Have you heard about the new {groceries} at the market?",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "I'm thinking of trying a new recipe with {groceries}.",
+    "category": "Not a valid command",
+    "type": "recipe"
+},
+{
+    "text": "Do we still have {groceries} in the pantry?",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I'm not a fan of the taste of {groceries}.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Have you ever cooked with {groceries} before?",
+    "category": "Not a valid command",
+    "type": "recipe"
+},
+
+ {
+  "text": "I'm considering whether we need more {groceries} this week.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm curious if {groceries} are on sale anywhere.",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I wonder if {groceries} are in stock at the store.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm not sure if we need to buy more {groceries} right now.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I've heard that {groceries} are on sale at the local market.",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I'm thinking of experimenting with {groceries} in our recipes.",
+  "category": "Not a valid command",
+  "type": "recipe"
+ },
+ {
+  "text": "Can you find out if they stock {groceries} in the local market?",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm not sure if we need to replenish our supply of {groceries} right now.",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I read about a new recipe that uses {groceries}.",
+  "category": "Not a valid command",
+  "type": "recipe"
+ },
+ {
+  "text": "Do we have any favorite dishes that include {groceries}?",
+  "category": "Not a valid command",
+  "type": "recipe"
+ },
+ {
+  "text": "I've been hearing good things about the health benefits of {groceries}.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "Can you check if there are any promotions on {groceries} this week?",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I'm considering whether we should explore a different variety of {groceries}.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm not sure if we need to restock on {groceries} right now.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I've heard that the local market has a special on {groceries}.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm thinking of trying out some new dishes with {groceries}.",
+  "category": "Not a valid command",
+  "type": "recipe"
+ },
+ {
+  "text": "Have you ever experimented with cooking {groceries}?",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "I'm considering whether we should add more {groceries} to our list this week.",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I'm curious if there are any discounts or sales on {groceries} anywhere.",
+  "category": "Not a valid command",
+  "type": "anything"
+ },
+ {
+  "text": "I wonder if we have enough of {groceries} in the party.",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+  "text": "Can you find out if they carry {groceries} in the local market?",
+  "category": "Not a valid command",
+  "type": "supermarket"
+ },
+ {
+    "text": "We need a ride for the weekend",
+    "category": "Not a valid command",
+    "type": "anything"
+ },
+ {
+    "text": "Pick up the pace or we will be late",
+    "category": "Not a valid command",
+    "type": "anything"
+ },
+ {
+    "text": "We need James to come to the party",
+    "category": "Not a valid command",
+    "type": "anything"
+ },
+ {
+    "text": "We should visit the museum this weekend",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Did you catch the latest movie?",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I need to call my friend to confirm plans",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Let's go for a hike in the mountains",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I'm thinking of redecorating the living room",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Have you read the new book by that author?",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "We should try that new restaurant downtown",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "I need to fix the leak in the bathroom",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Let's plan a weekend getaway",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "Did you hear about the upcoming concert?",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "The {groceries} at that party were awesome",
+    "category": "Not a valid command",
+    "type": "supermarket"
+},
+{
+    "text": "The {groceries} at the restaurant were delicious.",
+    "category": "Not a valid command",
+    "type": "recipe"
+},
+{
+    "text": "The {groceries} we saw at the market were fresh.",
+    "category": "Not a valid command",
+    "type": "recipe"
+},
+{
+    "text": "I can't stop thinking about the {groceries} at that Hanna's place.",
+    "category": "Not a valid command",
+    "type": "anything"
+},
+{
+    "text": "The {groceries} they serve at that cafe are excellent.",
+    "category": "Not a valid command",
+    "type": "recipe"
+}
+ 
+]
