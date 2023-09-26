@@ -20,7 +20,7 @@ def check_compatibility(item,phrase):
     return compatible
 
 def concatenate_random_grocery_list(items, template):
-    num_items = random.randint(1, 6)  # Randomly select number of items
+    num_items = random.randint(1,8)  # Randomly select number of items
     selected_items_full = {}
     shopping_list = []
     
@@ -43,6 +43,13 @@ def concatenate_random_grocery_list(items, template):
 
     return shopping_list_str.lower(),selected_items_full
 
+def format_grocery_objs(grocery_objs):
+    out_str = []
+    for k in grocery_objs:
+        out_str.append(f"({k}:{groceries_objs[k]})")
+    return " ".join(out_str)
+    
+
 base_templates = []
     
 with open("base_templates_v2.json", 'r') as json_file:
@@ -59,14 +66,14 @@ with open("grocery_items_v2.json", 'r') as json_file:
 dataset = []
 
 for template in base_templates:
-    for i in range(0,15):
+    for i in range(0,10):
         groceries_txt,groceries_objs = concatenate_random_grocery_list(grocery_items,template)
         if("{groceries}" in template["text"]):
             new_text = template["text"].format(groceries = groceries_txt)
-            dataset.append({"text":new_text,"category":template["category"],"items":str(groceries_objs)})
+            dataset.append({"text":new_text,"category":template["category"],"items":format_grocery_objs(groceries_objs)+"."})
         else:
             new_text = template["text"]
-            dataset.append({"text":new_text,"category":template["category"],"items":""})
+            dataset.append({"text":new_text,"category":template["category"],"items":"{}."})
             
 
 
