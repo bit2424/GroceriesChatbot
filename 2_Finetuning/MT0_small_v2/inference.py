@@ -11,7 +11,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model_classifier = AutoModelForSeq2SeqLM.from_pretrained(model_classifier_peft_name)
 model_ner = AutoModelForSeq2SeqLM.from_pretrained(model_ner_peft_name)
 
-input_text = "The USA needs more coal"
+input_text = """Identify the things that can be bought in a supermarket of the following text:
+We need more coal"""
 input_ids = tokenizer(input_text, return_tensors="pt")["input_ids"]
 print(input_text)
 # Perform inference
